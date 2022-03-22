@@ -8,9 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shakawat21.retrofit.R;
-import com.shakawat21.retrofit.get_all.ObjectDataClass;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,14 +17,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Activity_get_by_id extends AppCompatActivity {
 
-    TextView t;
+    TextView textView1,textView,textView2,textView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_by_id);
 
-        t=findViewById(R.id.textView1);
+        textView =findViewById(R.id.textView);
+        textView1 =findViewById(R.id.textView1);
+        textView2 =findViewById(R.id.textView2);
+        textView3 =findViewById(R.id.textView3);
 
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("https://cricket.sportmonks.com/api/v2.0/")
@@ -49,7 +49,10 @@ public class Activity_get_by_id extends AppCompatActivity {
                     Log.d("Updated_at", objectDataClass_for_ID.getUpdated_at());
 
 
-                    t.setText(objectDataClass_for_ID.getName());
+                    textView1.setText(objectDataClass_for_ID.getName());
+                    textView.setText(String.valueOf(objectDataClass_for_ID.getId()));
+                    textView2.setText(objectDataClass_for_ID.getResource());
+                    textView3.setText(objectDataClass_for_ID.getUpdated_at());
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "response failed", Toast.LENGTH_SHORT).show();

@@ -11,21 +11,18 @@ import com.shakawat21.retrofit.get_all.Activity_get_all;
 import com.shakawat21.retrofit.get_by_id.Activity_get_by_id;
 
 public class MainActivity extends AppCompatActivity {
-    Button button1;
+    Button button,button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button = findViewById(R.id.button);
         button1 = findViewById(R.id.button1);
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, Activity_get_all.class));
-                startActivity(new Intent(MainActivity.this, Activity_get_by_id.class));
-            }
-        });
+        button1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity_get_all.class)));
+        button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity_get_by_id.class)));
 
     }
 }
