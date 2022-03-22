@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.get1;
+package com.shakawat21.retrofit.get_all;
 
 public class ObjectDataClass {
     private String resource;

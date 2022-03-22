@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.get1;
+package com.shakawat21.retrofit.get_all;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Activity_1 extends AppCompatActivity {
+public class Activity_get_all extends AppCompatActivity {
     TextView hello1;
 
     @Override

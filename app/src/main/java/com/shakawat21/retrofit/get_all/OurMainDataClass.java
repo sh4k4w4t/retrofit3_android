@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.get1;
+package com.shakawat21.retrofit.get_all;
 
 import java.util.List;
 
