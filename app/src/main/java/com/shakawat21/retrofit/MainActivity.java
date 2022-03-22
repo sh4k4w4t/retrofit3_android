@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
                     for (ObjectDataClass objectDataClass : list) {
                         Toast.makeText(getApplicationContext(), "response success", Toast.LENGTH_SHORT).show();
                         hello1.setText("response success");
-                        Log.d("resource", String.valueOf(objectDataClass.getName()));
-                        Log.d("id", String.valueOf(objectDataClass.getId()));
-                        Log.d("name", String.valueOf(objectDataClass.getName()));
-                        Log.d("updated_at", String.valueOf(objectDataClass.getUpdated_at()));
+                        Log.e("resource", String.valueOf(objectDataClass.getName()));
+                        Log.e("id", String.valueOf(objectDataClass.getId()));
+                        Log.e("name", String.valueOf(objectDataClass.getName()));
+                        Log.e("updated_at", String.valueOf(objectDataClass.getUpdated_at()));
                     }
                 } else {
                     Log.d("response", "onResponse: failed");
