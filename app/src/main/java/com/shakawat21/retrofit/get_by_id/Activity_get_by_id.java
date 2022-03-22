@@ -47,6 +47,9 @@ public class Activity_get_by_id extends AppCompatActivity {
                     Log.d("Id", String.valueOf(objectDataClass_for_ID.getId()));
                     Log.d("Name", objectDataClass_for_ID.getName());
                     Log.d("Updated_at", objectDataClass_for_ID.getUpdated_at());
+
+
+                    t.setText(objectDataClass_for_ID.getName());
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "response failed", Toast.LENGTH_SHORT).show();
