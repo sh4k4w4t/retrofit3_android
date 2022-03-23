@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Retrofit</string>
 
-    <string name="token_0">ieisuz1CyH3RKtswe9hdzZ0gWBDbTuIUlCBzrQHS0kTZQHz1MfPsCKKsOYEX</string>
+    <string name="token_shakawat">ieisuz1CyH3RKtswe9hdzZ0gWBDbTuIUlCBzrQHS0kTZQHz1MfPsCKKsOYEX</string>
+    <string name="token_tasnova">0pxcdEQdsGZ7DGBUQNstGwcNmdA0pPuZ9vTimkIP1zbwefRZGiS9MtFMZbW9</string>
+
 </resources>
