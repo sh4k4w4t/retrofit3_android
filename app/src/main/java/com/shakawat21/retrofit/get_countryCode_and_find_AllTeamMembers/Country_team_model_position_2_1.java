@@ -1,13 +1,18 @@
 package com.shakawat21.retrofit.get_countryCode_and_find_AllTeamMembers;
 
-public class Country_team_model_position {
+import com.google.gson.annotations.SerializedName;
+
+public class Country_team_model_position_2_1 {
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("id")
     private int id;
 
-    public Country_team_model_position() {
+    public Country_team_model_position_2_1() {
     }
 
-    public Country_team_model_position(String name, int id) {
+    public Country_team_model_position_2_1(String name, int id) {
         this.name = name;
         this.id = id;
     }

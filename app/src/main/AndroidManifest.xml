@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Retrofit">
         <activity
+            android:name=".from_two_interface.FromTwoInterface"
+            android:exported="false" />
+        <activity
             android:name=".get_countryCode_and_find_AllTeamMembers.Country_and_team"
             android:exported="false" />
         <activity
