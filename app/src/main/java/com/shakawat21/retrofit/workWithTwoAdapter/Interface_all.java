@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 public interface Interface_all {
 
     @GET("teams/{ID}")
-    Call<Model_1_2> getData(@Path("ID") int id, @Query("api_token") String token);
+    Call<Model_1_2> getTeamData(@Path("ID") int id, @Query("api_token") String token);
 
     @GET("players")
     Call<Model_2_3> getAllData(@Query("api_token") String api_token);

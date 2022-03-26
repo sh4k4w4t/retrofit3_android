@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +55,7 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
 
 
 
-        Call<Model_1_2> call= interface_all.getData(10,getResources().getString(R.string.token_0));
+        Call<Model_1_2> call= interface_all.getTeamData(10,getResources().getString(R.string.token_0));
 
         call.enqueue(new Callback<Model_1_2>() {
             @SuppressLint("SetTextI18n")
