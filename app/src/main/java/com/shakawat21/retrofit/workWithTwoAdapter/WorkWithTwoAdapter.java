@@ -8,7 +8,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shakawat21.retrofit.AllInterface;
 import com.shakawat21.retrofit.R;
+import com.shakawat21.retrofit.RetrofitClient;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +23,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WorkWithTwoAdapter extends AppCompatActivity {
+    AllInterface allInterface;
 
     Interface_all interface_all;
     TextView ct_id_1, ct_country_id_1;
@@ -35,27 +38,15 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
         ct_id_1= findViewById(R.id.ct_id_1);
         ct_country_id_1= findViewById(R.id.ct_country_id_1);
 
-        OkHttpClient client= new OkHttpClient.Builder()
-                .connectTimeout(7000, TimeUnit.SECONDS)
-                .readTimeout(7000,TimeUnit.SECONDS)
-                .build();
-
-        Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(getResources().getString(R.string.base_url))
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        interface_all= retrofit.create(Interface_all.class);
+        allInterface= RetrofitClient.getServices();
+        loadHistory();
 
 
 
+    }
 
-
-
-
-
-        Call<Model_1_2> call= interface_all.getTeamData(10,getResources().getString(R.string.token_0));
+    private void loadHistory() {
+        Call<Model_1_2> call= allInterface.getTeamData(10,getResources().getString(R.string.token_0));
 
         call.enqueue(new Callback<Model_1_2>() {
             @SuppressLint("SetTextI18n")
@@ -69,7 +60,7 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                     sCountryId= model_1_2.getData().getCountry_id()+"";
 
 
-                    Call<Model_2_3> call1= interface_all.getAllData(getResources().getString(R.string.token_0));
+                    Call<Model_2_3> call1= allInterface.getAllData(getResources().getString(R.string.token_0));
                     call1.enqueue(new Callback<Model_2_3>() {
                         @Override
                         public void onResponse(Call<Model_2_3> call, Response<Model_2_3> response) {
@@ -108,7 +99,5 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "1 Failure failed", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }
