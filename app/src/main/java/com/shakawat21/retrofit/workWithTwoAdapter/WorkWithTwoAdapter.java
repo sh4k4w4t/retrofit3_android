@@ -55,8 +55,8 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "1 Response Success", Toast.LENGTH_SHORT).show();
                     Model_1_2 model_1_2= response.body();
 
-                    sID= model_1_2.getData().getId()+"";
-                    sCountryId= model_1_2.getData().getCountry_id()+"";
+//                    sID= model_1_2.getData().getId()+"";
+//                    sCountryId= model_1_2.getData().getCountry_id()+"";
 
 
                     Call<Model_2_3> call1= allInterface.getAllData(getResources().getString(R.string.token_0));
@@ -67,8 +67,16 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "2 Response Success", Toast.LENGTH_SHORT).show();
                                 List<Model_2_2> model_2_2s= response.body().getData();
                                 for (Model_2_2 model_2_2 : model_2_2s){
+
                                     Log.d("first name", model_2_2.getFirstname());
                                     Log.d("Last name", model_2_2.getLastname());
+
+//                                    if (model_2_2.getCountry_id()==model_1_2.getData().getCountry_id()){
+//                                        Log.d("first name", model_2_2.getFirstname());
+//                                        Log.d("Last name", model_2_2.getLastname());
+//                                        Log.d("ID", Integer.toString(model_2_2.getId()));
+//                                        Log.d("Country Id", Integer.toString(model_2_2.getCountry_id()));
+//                                    }
                                 }
 
 
