@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,6 +76,14 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                         public void onResponse(Call<Model_2_3> call, Response<Model_2_3> response) {
                             if (response.isSuccessful()){
                                 Toast.makeText(getApplicationContext(), "2 Response Success", Toast.LENGTH_SHORT).show();
+                                List<Model_2_2> model_2_2s= response.body().getData();
+                                for (Model_2_2 model_2_2 : model_2_2s){
+                                    Log.d("first name", model_2_2.getFirstname());
+                                    Log.d("Last name", model_2_2.getLastname());
+                                }
+
+
+
                             }else {
                                 Toast.makeText(getApplicationContext(), "2 Response failed", Toast.LENGTH_SHORT).show();
 
