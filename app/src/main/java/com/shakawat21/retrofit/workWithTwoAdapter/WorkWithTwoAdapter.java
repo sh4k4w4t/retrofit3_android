@@ -25,7 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WorkWithTwoAdapter extends AppCompatActivity {
     AllInterface allInterface;
 
-    Interface_all interface_all;
     TextView ct_id_1, ct_country_id_1;
     String sID, sCountryId;
 
