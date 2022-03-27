@@ -39,9 +39,6 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
 
         allInterface= RetrofitClient.getServices();
         loadHistory();
-
-
-
     }
 
     private void loadHistory() {
@@ -55,8 +52,8 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "1 Response Success", Toast.LENGTH_SHORT).show();
                     Model_1_2 model_1_2= response.body();
 
-//                    sID= model_1_2.getData().getId()+"";
-//                    sCountryId= model_1_2.getData().getCountry_id()+"";
+                    sID= model_1_2.getData().getId()+"";
+                    sCountryId= model_1_2.getData().getCountry_id()+"";
 
 
                     Call<Model_2_3> call1= allInterface.getAllData(getResources().getString(R.string.token_0));
@@ -66,41 +63,30 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
                             if (response.isSuccessful()){
                                 Toast.makeText(getApplicationContext(), "2 Response Success", Toast.LENGTH_SHORT).show();
                                 List<Model_2_2> model_2_2s= response.body().getData();
+
+
                                 for (Model_2_2 model_2_2 : model_2_2s){
-
-                                    Log.d("first name", model_2_2.getFirstname());
-                                    Log.d("Last name", model_2_2.getLastname());
-
-//                                    if (model_2_2.getCountry_id()==model_1_2.getData().getCountry_id()){
-//                                        Log.d("first name", model_2_2.getFirstname());
-//                                        Log.d("Last name", model_2_2.getLastname());
-//                                        Log.d("ID", Integer.toString(model_2_2.getId()));
-//                                        Log.d("Country Id", Integer.toString(model_2_2.getCountry_id()));
-//                                    }
-                                }
-
-
+                                        Log.d("first name", model_2_2.getFirstname());
+                                        Log.d("Last name", model_2_2.getLastname());
+                                        Log.d("ID", Integer.toString(model_2_2.getId()));
+                                        Log.d("Country Id", Integer.toString(model_2_2.getCountry_id()));}
+                                
 
                             }else {
                                 Toast.makeText(getApplicationContext(), "2 Response failed", Toast.LENGTH_SHORT).show();
-
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Model_2_3> call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "2 Failure failed Success", Toast.LENGTH_SHORT).show();
-
-
                         }
                     });
-
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "1 Response Failed", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<Model_1_2> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "1 Failure failed", Toast.LENGTH_SHORT).show();
