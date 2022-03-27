@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".get_by_id.Activity_get_by_id">
+    tools:context=".get.get_by_id.Activity_get_by_id">
 
     <TextView
         android:id="@+id/textView1"

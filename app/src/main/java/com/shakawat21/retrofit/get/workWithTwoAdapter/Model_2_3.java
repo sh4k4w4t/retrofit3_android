@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.workWithTwoAdapter;
+package com.shakawat21.retrofit.get.workWithTwoAdapter;
 
 import java.util.List;
 

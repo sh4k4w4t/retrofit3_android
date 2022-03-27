@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.get_by_id;
+package com.shakawat21.retrofit.get.get_by_id;
 
 import androidx.appcompat.app.AppCompatActivity;
 

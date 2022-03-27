@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.get_all;
+package com.shakawat21.retrofit.get.get_all;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

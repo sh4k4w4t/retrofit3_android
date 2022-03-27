@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.workWithTwoAdapter;
+package com.shakawat21.retrofit.get.workWithTwoAdapter;
 
 public class Model_1_1 {
     private int id;

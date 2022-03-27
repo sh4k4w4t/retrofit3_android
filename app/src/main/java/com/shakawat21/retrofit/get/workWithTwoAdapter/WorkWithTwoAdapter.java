@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.workWithTwoAdapter;
+package com.shakawat21.retrofit.get.workWithTwoAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,14 +13,10 @@ import com.shakawat21.retrofit.R;
 import com.shakawat21.retrofit.RetrofitClient;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WorkWithTwoAdapter extends AppCompatActivity {
     AllInterface allInterface;

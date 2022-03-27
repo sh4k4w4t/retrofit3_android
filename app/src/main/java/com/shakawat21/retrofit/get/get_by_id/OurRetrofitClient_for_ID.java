@@ -1,6 +1,4 @@
-package com.shakawat21.retrofit.get_by_id;
-
-import com.shakawat21.retrofit.get_all.OurMainDataClass;
+package com.shakawat21.retrofit.get.get_by_id;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

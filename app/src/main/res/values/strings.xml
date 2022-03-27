@@ -2,6 +2,8 @@
     <string name="app_name">Retrofit</string>
 
     <string name="token_0">ieisuz1CyH3RKtswe9hdzZ0gWBDbTuIUlCBzrQHS0kTZQHz1MfPsCKKsOYEX</string>
+    <string name="token_fake_json">DhI-Xye_0SzOK3WbKey8Ow</string>
 
     <string name="base_url">https://cricket.sportmonks.com/api/v2.0/</string>
+
 </resources>

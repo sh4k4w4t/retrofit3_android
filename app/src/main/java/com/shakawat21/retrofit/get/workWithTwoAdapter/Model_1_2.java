@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.workWithTwoAdapter;
+package com.shakawat21.retrofit.get.workWithTwoAdapter;
 
 public class Model_1_2 {
     private Model_1_1 data;

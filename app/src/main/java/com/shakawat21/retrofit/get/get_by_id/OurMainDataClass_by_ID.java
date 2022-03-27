@@ -1,8 +1,4 @@
-package com.shakawat21.retrofit.get_by_id;
-
-import com.shakawat21.retrofit.get_all.ObjectDataClass;
-
-import java.util.List;
+package com.shakawat21.retrofit.get.get_by_id;
 
 public class OurMainDataClass_by_ID {
 
