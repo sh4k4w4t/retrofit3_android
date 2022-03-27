@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.shakawat21.retrofit.AllInterface;
 import com.shakawat21.retrofit.R;
-import com.shakawat21.retrofit.RetrofitClient;
+import com.shakawat21.retrofit.RetrofitClient_for_sportsMonk;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class WorkWithTwoAdapter extends AppCompatActivity {
         ct_id_1= findViewById(R.id.ct_id_1);
         ct_country_id_1= findViewById(R.id.ct_country_id_1);
 
-        allInterface= RetrofitClient.getServices();
+        allInterface= RetrofitClient_for_sportsMonk.getServices();
         loadHistory();
     }
 

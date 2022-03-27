@@ -9,14 +9,14 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+public class RetrofitClient_for_fakeJson {
     public static Retrofit api;
     public static AllInterface services;
 
-    public static AllInterface getServices() {
-        if (services == null) {
-            if (api == null) {
-                Gson gson = new GsonBuilder()
+    public static AllInterface getServices(){
+        if (services==null){
+            if (api==null){
+                Gson gson= new GsonBuilder()
                         .setLenient()
                         .create();
 
@@ -25,13 +25,13 @@ public class RetrofitClient {
                         .readTimeout(7000,TimeUnit.SECONDS)
                         .build();
 
-                api = new Retrofit.Builder()
-                        .baseUrl("https://cricket.sportmonks.com/api/v2.0/")
+                api= new Retrofit.Builder()
+                        .baseUrl("http://app.fakejson.com/")
                         .client(okHttpClient)
-                        .addConverterFactory(GsonConverterFactory.create(gson))
+                        .addConverterFactory(GsonConverterFactory.create())
                         .build();
             }
-            services = api.create(AllInterface.class);
+            services= api.create(AllInterface.class);
             return services;
         }
         return services;
