@@ -28,7 +28,7 @@ public class RetrofitClient_for_fakeJson {
                 api= new Retrofit.Builder()
                         .baseUrl("http://app.fakejson.com/")
                         .client(okHttpClient)
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create(gson))
                         .build();
             }
             services= api.create(AllInterface.class);

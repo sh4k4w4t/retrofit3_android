@@ -4,8 +4,12 @@ import com.shakawat21.retrofit.get.get_all.OurMainDataClass;
 import com.shakawat21.retrofit.get.get_by_id.OurMainDataClass_by_ID;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_1_2;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_2_3;
+import com.shakawat21.retrofit.post.fakejson_1.request.Model_request_final_1;
+import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_final;
 import com.shakawat21.retrofit.post.fakejson_2.request.Model_request_final_5;
 import com.shakawat21.retrofit.post.fakejson_2.response.Model_response_final_4;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -32,10 +36,12 @@ public interface AllInterface {
     @GET("players")
     Call<Model_2_3> getAllData(@Query("api_token") String api_token);
 
+    //fakeResponse_2
+    @POST("q")
+    Call<Model_response_final_4> getFakeResponse_2(@Body Model_request_final_5 model_request_final_5);
+
     //fakeResponse_1
     @POST("q")
-    Call<Model_response_final_4> getFakeResponse_1(@Body Model_request_final_5 model_request_final_5);
-
-
+    Call<List<Model_response_user_info_final>> userInfo(@Body Model_request_final_1 model_request_final_1);
 
 }

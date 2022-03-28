@@ -44,7 +44,7 @@ public class FakeJson_2 extends AppCompatActivity {
     }
 
     private void loadHistory() {
-        Call<Model_response_final_4> call= allInterface.getFakeResponse_1(model_request_final_5);
+        Call<Model_response_final_4> call= allInterface.getFakeResponse_2(model_request_final_5);
         call.enqueue(new Callback<Model_response_final_4>() {
             @Override
             public void onResponse(Call<Model_response_final_4> call, Response<Model_response_final_4> response) {
