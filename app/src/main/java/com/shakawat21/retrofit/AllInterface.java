@@ -4,9 +4,11 @@ import com.shakawat21.retrofit.get.get_all.OurMainDataClass;
 import com.shakawat21.retrofit.get.get_by_id.OurMainDataClass_by_ID;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_1_2;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_2_3;
-import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_final_4;
+import com.shakawat21.retrofit.post.fakejson_2.request.Model_request_final_5;
+import com.shakawat21.retrofit.post.fakejson_2.response.Model_response_final_4;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -32,7 +34,7 @@ public interface AllInterface {
 
     //fakeResponse_1
     @POST("q")
-    Call<Model_response_final_4> getFakeResponse_1();
+    Call<Model_response_final_4> getFakeResponse_1(@Body Model_request_final_5 model_request_final_5);
 
 
 

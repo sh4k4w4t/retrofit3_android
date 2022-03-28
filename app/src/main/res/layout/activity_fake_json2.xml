@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".post.fakejson_2.FakeJson_2">
+    tools:context=".post.fakejson_1.FakeJson_1">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

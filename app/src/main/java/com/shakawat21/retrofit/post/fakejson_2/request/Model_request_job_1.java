@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.post.fakejson_1.request;
+package com.shakawat21.retrofit.post.fakejson_2.request;
 
 public class Model_request_job_1 {
     private String company;

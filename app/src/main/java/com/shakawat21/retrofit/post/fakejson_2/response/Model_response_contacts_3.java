@@ -1,4 +1,4 @@
-package com.shakawat21.retrofit.post.fakejson_1.response;
+package com.shakawat21.retrofit.post.fakejson_2.response;
 
 public class Model_response_contacts_3 {
     private String email;
