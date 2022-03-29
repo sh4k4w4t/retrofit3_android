@@ -3,6 +3,7 @@ package com.shakawat21.retrofit.post.fakejson_2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.shakawat21.retrofit.AllInterface;
@@ -50,6 +51,19 @@ public class FakeJson_2 extends AppCompatActivity {
             public void onResponse(Call<Model_response_final_4> call, Response<Model_response_final_4> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Response Success", Toast.LENGTH_SHORT).show();
+                    Model_response_final_4 model_response_final_4= response.body();
+                    Log.d("response signal", "onResponse: ====================================");
+                    Log.d("First Name", model_response_final_4.getFirst_name());
+                    Log.d("Last Name", model_response_final_4.getLast_name());
+                    Log.d("getCity", model_response_final_4.getLocation().getCity());
+                    Log.d("getState", model_response_final_4.getLocation().getState());
+                    Log.d("getStreet", model_response_final_4.getLocation().getStreet());
+                    Log.d("getCountry", model_response_final_4.getLocation().getCountry());
+                    Log.d("Company", model_response_final_4.getJob().getCompany());
+                    Log.d("Department", model_response_final_4.getJob().getDepartment());
+                    Log.d("Position", model_response_final_4.getJob().getPosition());
+                    Log.d("getEmail", model_response_final_4.getContacts().getEmail());
+                    Log.d("getMobile", model_response_final_4.getContacts().getMobile());
 
                 }
                 else {
