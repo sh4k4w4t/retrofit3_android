@@ -5,7 +5,7 @@ import com.shakawat21.retrofit.get.get_by_id.OurMainDataClass_by_ID;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_1_2;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_2_3;
 import com.shakawat21.retrofit.post.fakejson_1.request.Model_request_final_1;
-import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_final;
+import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_1;
 import com.shakawat21.retrofit.post.fakejson_2.request.Model_request_final_5;
 import com.shakawat21.retrofit.post.fakejson_2.response.Model_response_final_4;
 
@@ -42,6 +42,6 @@ public interface AllInterface {
 
     //fakeResponse_1
     @POST("q")
-    Call<List<Model_response_user_info_final>> userInfo(@Body Model_request_final_1 model_request_final_1);
+    Call<List<Model_response_user_info_1>> userInfo(@Body Model_request_final_1 model_request_final_1);
 
 }

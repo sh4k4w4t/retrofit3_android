@@ -3,6 +3,7 @@ package com.shakawat21.retrofit.post.fakejson_1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.shakawat21.retrofit.AllInterface;
@@ -10,7 +11,7 @@ import com.shakawat21.retrofit.R;
 import com.shakawat21.retrofit.RetrofitClient_for_fakeJson;
 import com.shakawat21.retrofit.post.fakejson_1.request.Model_request_data_1;
 import com.shakawat21.retrofit.post.fakejson_1.request.Model_request_final_1;
-import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_final;
+import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_1;
 
 import java.util.List;
 
@@ -36,12 +37,19 @@ public class FakeJson_1 extends AppCompatActivity {
     }
 
     private void loadCallSection() {
-        Call<List<Model_response_user_info_final>> response= allInterface.userInfo(model_request_final_1);
-        response.enqueue(new Callback<List<Model_response_user_info_final>>() {
+        Call<List<Model_response_user_info_1>> response= allInterface.userInfo(model_request_final_1);
+        response.enqueue(new Callback<List<Model_response_user_info_1>>() {
             @Override
-            public void onResponse(Call<List<Model_response_user_info_final>> call, Response<List<Model_response_user_info_final>> response) {
+            public void onResponse(Call<List<Model_response_user_info_1>> call, Response<List<Model_response_user_info_1>> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Response Success", Toast.LENGTH_SHORT).show();
+                    List<Model_response_user_info_1> list= response.body();
+                    for (Model_response_user_info_1 model_response_user_info_final : list){
+                        Log.d("UserName", model_response_user_info_final.getUser_name());
+                        Log.d("UserEmail", model_response_user_info_final.getUser_email());
+                    }
+
+
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Response Failed", Toast.LENGTH_SHORT).show();
@@ -49,7 +57,7 @@ public class FakeJson_1 extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Model_response_user_info_final>> call, Throwable t) {
+            public void onFailure(Call<List<Model_response_user_info_1>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Failure Failed", Toast.LENGTH_SHORT).show();
 
             }
