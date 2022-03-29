@@ -11,9 +11,10 @@ import com.shakawat21.retrofit.get.get_by_id.Activity_get_by_id;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.WorkWithTwoAdapter;
 import com.shakawat21.retrofit.post.fakejson_1.FakeJson_1;
 import com.shakawat21.retrofit.post.fakejson_2.FakeJson_2;
+import com.shakawat21.retrofit.post.jsonplaceholderApi.JsonPlaceHolderPostActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button button,button1,button2,fake_json_1,fake_json_2;
+    Button button,button1,button2,fake_json_1,fake_json_2,jsonPlaceHolderAPi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         fake_json_1=findViewById(R.id.fake_json_1);
         fake_json_2=findViewById(R.id.fake_json_2);
+        jsonPlaceHolderAPi=findViewById(R.id.jsonPlaceHolderAPi);
 
         button1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity_get_all.class)));
         button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity_get_by_id.class)));
         button2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, WorkWithTwoAdapter.class)));
         fake_json_1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, FakeJson_1.class)));
         fake_json_2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, FakeJson_2.class)));
+        jsonPlaceHolderAPi.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, JsonPlaceHolderPostActivity.class)));
 
     }
 }

@@ -8,11 +8,14 @@ import com.shakawat21.retrofit.post.fakejson_1.request.Model_request_final_1;
 import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_1;
 import com.shakawat21.retrofit.post.fakejson_2.request.Model_request_final_5;
 import com.shakawat21.retrofit.post.fakejson_2.response.Model_response_final_4;
+import com.shakawat21.retrofit.post.jsonplaceholderApi.Model_Response_JsonPlaceHolderApi;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -44,4 +47,11 @@ public interface AllInterface {
     @POST("q")
     Call<List<Model_response_user_info_1>> userInfo(@Body Model_request_final_1 model_request_final_1);
 
+    @FormUrlEncoded
+    @POST("posts")
+    Call<Model_Response_JsonPlaceHolderApi> responseModel(
+            @Field("title") String title,
+            @Field("body") String body,
+            @Field("userId") int userId
+    );
 }
