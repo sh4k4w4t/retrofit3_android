@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Retrofit">
-        <activity
-            android:name=".post.jsonplaceholderApi.JsonPlaceHolderPostActivity"
-            android:exported="false" />
+
         <activity
             android:name=".post.fakejson_1.FakeJson_1"
             android:exported="false" />
@@ -22,12 +20,6 @@
             android:exported="false" />
         <activity
             android:name=".get.workWithTwoAdapter.WorkWithTwoAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".from_two_interface.FromTwoInterface"
-            android:exported="false" />
-        <activity
-            android:name=".get_countryCode_and_find_AllTeamMembers.Country_and_team"
             android:exported="false" />
         <activity
             android:name=".get.get_by_id.Activity_get_by_id"
