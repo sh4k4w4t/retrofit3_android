@@ -1,5 +1,6 @@
 package com.shakawat21.retrofit.imageUpload;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,7 +11,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -18,13 +23,16 @@ import com.shakawat21.retrofit.AllInterface;
 import com.shakawat21.retrofit.R;
 import com.shakawat21.retrofit.get.get_all.OurRetrofitClient;
 
+import java.io.IOException;
+import java.net.URI;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ImageUploadActivity extends AppCompatActivity {
-    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99 ;
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
-    private Button captureImage,selectImage;
+    private Button captureImage, selectImage;
     private ImageView imageView;
 
     private static final int CAPTURE_REQUEST_CODE = 0;
@@ -32,6 +40,7 @@ public class ImageUploadActivity extends AppCompatActivity {
 
     private AllInterface ourRetrofitClient;
     private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +51,62 @@ public class ImageUploadActivity extends AppCompatActivity {
         selectImage = findViewById(R.id.select_image);
         imageView = findViewById(R.id.Image_view);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://joy-technologies-ltd.com/test/").addConverterFactory(GsonConverterFactory.create()).build();
-        ourRetrofitClient = retrofit.create(AllInterface.class);
-        progressDialog = new ProgressDialog(ImageUploadActivity.this);
-        progressDialog.setMessage("Image Upload....");
+        captureImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CheckPermission()) {
+                    Intent capture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(capture, CAPTURE_REQUEST_CODE);
+                }
+            }
+        });
+
+        selectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CheckPermission()) {
+                    Intent select = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(select, SELECT_REQUEST_CODE);
+                }
+            }
+        });
 
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case CAPTURE_REQUEST_CODE: {
+                if (resultCode == RESULT_OK) {
+                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                    imageView.setImageBitmap(bitmap);
+                    ImageUpload(bitmap);
+                }
+            }
+            break;
+
+            case SELECT_REQUEST_CODE: {
+                if (requestCode == RESULT_OK) {
+
+                    try {
+                        Uri imageURI = data.getData();
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageURI);
+                        imageView.setImageBitmap(bitmap);
+                        ImageUpload(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+    private void ImageUpload(Bitmap bitmap) {
+    }
 
     public boolean CheckPermission() {
         if (ContextCompat.checkSelfPermission(ImageUploadActivity.this,
