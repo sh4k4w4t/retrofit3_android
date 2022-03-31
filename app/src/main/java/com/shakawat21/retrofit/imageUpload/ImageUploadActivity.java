@@ -100,17 +100,14 @@ public class ImageUploadActivity extends AppCompatActivity {
         }
     }
 
+    //upload in server
     private void ImageUpload(Bitmap bitmap) {
     }
 
     public boolean CheckPermission() {
-        if (ContextCompat.checkSelfPermission(ImageUploadActivity.this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(ImageUploadActivity.this,
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(ImageUploadActivity.this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(ImageUploadActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(ImageUploadActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(ImageUploadActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this,
                     Manifest.permission.READ_EXTERNAL_STORAGE) || ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this,
                     Manifest.permission.CAMERA) || ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this,
