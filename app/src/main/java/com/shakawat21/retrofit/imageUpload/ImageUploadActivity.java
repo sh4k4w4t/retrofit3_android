@@ -21,13 +21,8 @@ import android.widget.ImageView;
 
 import com.shakawat21.retrofit.AllInterface;
 import com.shakawat21.retrofit.R;
-import com.shakawat21.retrofit.get.get_all.OurRetrofitClient;
 
 import java.io.IOException;
-import java.net.URI;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ImageUploadActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -89,7 +84,7 @@ public class ImageUploadActivity extends AppCompatActivity {
             break;
 
             case SELECT_REQUEST_CODE: {
-                if (requestCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
 
                     try {
                         Uri imageURI = data.getData();
@@ -131,6 +126,7 @@ public class ImageUploadActivity extends AppCompatActivity {
                                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                         MY_PERMISSIONS_REQUEST_LOCATION);
 
+
                                 startActivity(new Intent(ImageUploadActivity
                                         .this, ImageUploadActivity.class));
                                 ImageUploadActivity.this.overridePendingTransition(0, 0);
@@ -138,15 +134,19 @@ public class ImageUploadActivity extends AppCompatActivity {
                         })
                         .create()
                         .show();
+
+
             } else {
                 ActivityCompat.requestPermissions(ImageUploadActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         MY_PERMISSIONS_REQUEST_LOCATION);
             }
+
             return false;
         } else {
 
             return true;
+
         }
     }
 }
