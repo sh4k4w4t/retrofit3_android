@@ -4,6 +4,7 @@ import com.shakawat21.retrofit.get.get_all.OurMainDataClass;
 import com.shakawat21.retrofit.get.get_by_id.OurMainDataClass_by_ID;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_1_2;
 import com.shakawat21.retrofit.get.workWithTwoAdapter.Model_2_3;
+import com.shakawat21.retrofit.imageUpload.ImageModel;
 import com.shakawat21.retrofit.post.fakejson_1.request.Model_request_final_1;
 import com.shakawat21.retrofit.post.fakejson_1.response.Model_response_user_info_1;
 import com.shakawat21.retrofit.post.fakejson_2.request.Model_request_final_5;
@@ -46,4 +47,11 @@ public interface AllInterface {
     @POST("q")
     Call<List<Model_response_user_info_1>> userInfo(@Body Model_request_final_1 model_request_final_1);
 
+
+    @POST("update.php")
+    @FormUrlEncoded
+    Call<ImageModel> imageUpload(
+            @Field("name") String name,
+            @Field("image") String image
+    );
 }

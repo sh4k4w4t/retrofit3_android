@@ -15,14 +15,22 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.shakawat21.retrofit.AllInterface;
 import com.shakawat21.retrofit.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ImageUploadActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -33,7 +41,7 @@ public class ImageUploadActivity extends AppCompatActivity {
     private static final int CAPTURE_REQUEST_CODE = 0;
     private static final int SELECT_REQUEST_CODE = 1;
 
-    private AllInterface ourRetrofitClient;
+    private AllInterface allInterface;
     private ProgressDialog progressDialog;
 
 
@@ -45,6 +53,9 @@ public class ImageUploadActivity extends AppCompatActivity {
         captureImage = findViewById(R.id.capture_image);
         selectImage = findViewById(R.id.select_image);
         imageView = findViewById(R.id.Image_view);
+
+        progressDialog= new ProgressDialog(ImageUploadActivity.this);
+        progressDialog.setMessage("Image Upload.....");
 
         captureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +78,9 @@ public class ImageUploadActivity extends AppCompatActivity {
         });
 
 
+        allInterface= ImageRetrofit.getServices();
+
+
     }
 
     @Override
@@ -78,6 +92,7 @@ public class ImageUploadActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     Bitmap bitmap = (Bitmap) data.getExtras().get("data");
                     imageView.setImageBitmap(bitmap);
+                    progressDialog.show();
                     ImageUpload(bitmap);
                 }
             }
@@ -90,6 +105,7 @@ public class ImageUploadActivity extends AppCompatActivity {
                         Uri imageURI = data.getData();
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageURI);
                         imageView.setImageBitmap(bitmap);
+                        progressDialog.show();
                         ImageUpload(bitmap);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -102,6 +118,31 @@ public class ImageUploadActivity extends AppCompatActivity {
 
     //upload in server
     private void ImageUpload(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream= new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        String image = android.util.Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+        String name = String.valueOf(Calendar.getInstance().getTimeInMillis());
+
+        Call<ImageModel> call= allInterface.imageUpload(name, image);
+        call.enqueue(new Callback<ImageModel>() {
+            @Override
+            public void onResponse(Call<ImageModel> call, Response<ImageModel> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(ImageUploadActivity.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }
+                else {
+                    Toast.makeText(ImageUploadActivity.this, "Response Failed", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ImageModel> call, Throwable t) {
+                Toast.makeText(ImageUploadActivity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        });
     }
 
     public boolean CheckPermission() {
