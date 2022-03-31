@@ -108,10 +108,11 @@ public class ImageUploadActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(ImageUploadActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(ImageUploadActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(ImageUploadActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this,
-                    Manifest.permission.READ_EXTERNAL_STORAGE) || ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this,
-                    Manifest.permission.CAMERA) || ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) ||
+                    ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this, Manifest.permission.CAMERA) ||
+                    ActivityCompat.shouldShowRequestPermissionRationale(ImageUploadActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
                 new AlertDialog.Builder(ImageUploadActivity.this)
                         .setTitle("Permission")
                         .setMessage("Please accept the permissions")
@@ -123,27 +124,20 @@ public class ImageUploadActivity extends AppCompatActivity {
                                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                         MY_PERMISSIONS_REQUEST_LOCATION);
 
-
-                                startActivity(new Intent(ImageUploadActivity
-                                        .this, ImageUploadActivity.class));
+                                startActivity(new Intent(ImageUploadActivity.this, ImageUploadActivity.class));
                                 ImageUploadActivity.this.overridePendingTransition(0, 0);
                             }
                         })
                         .create()
                         .show();
-
-
             } else {
                 ActivityCompat.requestPermissions(ImageUploadActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         MY_PERMISSIONS_REQUEST_LOCATION);
             }
-
             return false;
         } else {
-
             return true;
-
         }
     }
 }
